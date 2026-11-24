@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#121516"><title>DUSTLINE — La faille d’ocre</title>
+<style>
+*{box-sizing:border-box}html{color-scheme:dark}body{margin:0;background:#111415;color:#f1eee6;font:15px Arial,Helvetica,sans-serif}button,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,canvas:focus-visible{outline:2px solid #ffb169;outline-offset:3px}.bar{height:66px;background:#191c1d;border-bottom:1px solid #383c3c;padding:0 max(3vw,18px);display:flex;align-items:center;justify-content:space-between}.brand,.headtools,.status,.badges,.row,.section,.stat,.resources{display:flex;align-items:center}.brand{font-size:24px;font-weight:950;letter-spacing:-1.6px;gap:9px}.emblem{display:inline-flex;align-items:center;gap:3px;transform:skew(-20deg);margin:0 5px}.emblem i{width:7px;height:23px;background:#ff8844;display:block}.emblem i:nth-child(2){height:17px}.emblem i:nth-child(3){height:10px}.headtools{gap:9px}.icon,.small{background:#232829;border:1px solid #434849;border-radius:4px;padding:8px 11px;min-height:35px;font-weight:bold}.icon:hover,.small:hover,.action:hover{background:#333a39}.icon svg{vertical-align:middle;width:16px;height:16px}.shell{max-width:1640px;margin:auto;padding:26px max(3vw,18px) 16px}.top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:17px;gap:15px}.eyebrow,.mono,.section,.stat small,.tabs,.foot,.key,.tag,.cost,.kicker{font-family:ui-monospace,Consolas,monospace}.eyebrow,.kicker{color:#ef985e;letter-spacing:2px;font-size:10px;font-weight:bold;text-transform:uppercase}.eyebrow:before{content:"";display:inline-block;height:2px;width:20px;background:#f59454;margin:0 8px 3px 0}h1,h2,h3,p{margin:0}h1{font-size:clamp(30px,3vw,48px);line-height:1.03;letter-spacing:-1.8px;margin-top:7px;font-weight:800}.resources{background:#202425;border:1px solid #363a3a;border-radius:5px;padding:9px 0}.stat{padding:0 16px;gap:9px;border-right:1px solid #424646}.stat:last-child{border:0}.stat small{display:block;letter-spacing:1px;color:#acb0a9;font-size:9px}.stat b{display:block;font-size:18px;font-variant-numeric:tabular-nums}.symbol{font-size:20px;color:#6ddaca}.stat:nth-child(2) .symbol{color:#ed9d70}.stat:last-child .symbol{color:#ccc7b8}.grid{display:grid;grid-template-columns:minmax(0,1fr) 276px;gap:14px;align-items:start}.panel{background:#1c2021;border:1px solid #3c4140;border-radius:6px;overflow:hidden}.section{height:39px;padding:0 14px;justify-content:space-between;border-bottom:1px solid #3b403e;font-weight:bold;letter-spacing:1.15px;font-size:10px;text-transform:uppercase}.lamp{display:inline-block;width:7px;height:7px;border-radius:50%;background:#78d8bc;margin-right:7px}.section .light{font-weight:normal;letter-spacing:.5px;color:#adb4ac}.field{position:relative;background:#744833}.field canvas{width:100%;height:auto;display:block;touch-action:none;cursor:crosshair}.field .tag{position:absolute;left:12px;top:12px;padding:5px 8px;background:#181d1de6;border:1px solid #706453;color:#ecd4b1;font-size:9px;letter-spacing:1px;pointer-events:none}.field .notice{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);text-align:center;color:#fff3df;font-size:12px;background:#191b19ee;padding:7px 12px;border:1px solid #7d7565;border-radius:3px;pointer-events:none;width:max-content;max-width:90%;display:none}.legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:10px 14px;font-size:11px;color:#c2c6bb}.mark{display:inline-block;width:8px;height:8px;background:#79d4c2;margin-right:5px}.mark.enemy{background:#fc8063}.mark.relay{background:transparent;border:1px solid #f3c379;transform:rotate(45deg)}.side{display:grid;gap:12px}.brief,.deploy{padding:15px}.brief h2{font-size:20px;letter-spacing:-.6px;margin:7px 0}.brief p,.desc{color:#c2c6bd;line-height:1.4;font-size:13px}.primary{background:#ff9352;color:#1b1a16;border:0;border-radius:3px;padding:12px 14px;font-weight:800;width:100%;display:flex;justify-content:space-between;align-items:center}.primary:hover{background:#ffad79}.primary:disabled{background:#3a4540;color:#c7d2c9;cursor:default}.deploy .row{margin:0 0 12px;justify-content:space-between;color:#bfc4ba;font-size:12px}.deploy select{background:#292e2e;border:1px solid #49504b;border-radius:3px;padding:5px}.actions{padding:4px 10px 7px}.action{display:flex;align-items:center;width:100%;background:transparent;border:0;border-bottom:1px solid #373d3b;text-align:left;gap:9px;padding:7px 3px}.action:last-child{border-bottom:0}.action canvas{width:44px;height:36px;image-rendering:pixelated;background:#2b302e;border:1px solid #424944;border-radius:3px}.action strong{display:block;font-size:13px}.cost{font-size:10px;color:#91cfbd;margin-top:4px;display:block}.key{margin-left:auto;font-size:10px;color:#adafa6;border:1px solid #4c514b;border-radius:3px;padding:2px 4px}.action:disabled{cursor:default;opacity:.57}.action.active{outline:1px solid #df995f}.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 0;color:#919a91;font-size:10px;line-height:1.6}.selection{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid #393e3c;padding:12px 14px}.selection b{font-size:14px}.selection p{font-size:12px;color:#b1b7ae;margin-top:3px}.small{font-size:12px;white-space:nowrap}.queue{font:11px ui-monospace,monospace;padding:0 12px 10px;color:#c1c8bc}.queue:empty{display:none}dialog{width:min(420px,92vw);padding:24px;background:#202423;color:#f7f2e6;border:1px solid #60615a;border-radius:6px}dialog::backdrop{background:#080c0dd4}dialog h2{margin:8px 0 14px;font-size:30px;letter-spacing:-1px}dialog p,dialog li{line-height:1.5;color:#d2d6cc;font-size:14px}dialog ul{padding-left:18px}dialog button{margin-top:12px}.hidden{display:none!important}@media(max-width:950px){.shell{padding:16px 12px}.grid{grid-template-columns:minmax(0,1fr) 214px;gap:9px}.brief,.deploy{padding:11px}.stat{padding:0 9px}.action{padding:5px 1px}.bar{height:52px}}@media(max-width:715px){.grid{display:flex;flex-direction:column}.grid>*,.side{width:100%}.side{grid-template-columns:1fr 1fr;align-items:start;gap:8px}.side .deployment{grid-column:1}.side .catalog{grid-column:2;grid-row:1 / span 2}.top{align-items:start}.resources{padding:6px 0}.stat{gap:3px;padding:0 5px}.stat small{font-size:7px}.stat b{font-size:13px}.symbol{font-size:14px}.bar{padding:0 12px}.foot{flex-wrap:wrap}.shell{padding:14px 8px}.legend{gap:8px;padding:8px}.selection{padding:9px}.section{padding:0 9px}.headtools{gap:4px}.icon{padding:7px}.top{gap:6px}.eyebrow{font-size:8px}.field .tag{display:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style></head><body>
+<header class="bar"><div class="brand"><span class="emblem" aria-hidden="true"><i></i><i></i><i></i></span>DUSTLINE</div><div class="headtools"><button class="icon" id="sound" title="Activer le son" aria-label="Activer le son"></button><button class="icon" id="help" title="Commandes">? <span>Commandes</span></button><button class="icon hidden" id="pause" title="Pause (Espace)">Ⅱ</button></div></header>
+<main class="shell"><div class="top"><div><div class="eyebrow">Opération 01 / Escarmouche</div><h1>La faille d’ocre</h1></div><div class="resources"><div class="stat"><span class="symbol">◆</span><div><small>MINERAI</small><b id="ore">180</b></div></div><div class="stat"><span class="symbol">⬡</span><div><small>UNITÉS</small><b id="pop">5/30</b></div></div><div class="stat"><span class="symbol">◷</span><div><small>CHRONO</small><b id="time">00:00</b></div></div></div></div>
+<div class="grid"><div><div class="panel"><div class="section"><span><i class="lamp"></i>Vue tactique</span><span class="light" id="status">EN ATTENTE</span></div><div class="field"><canvas id="map" width="1000" height="580" tabindex="0" aria-label="Terrain de jeu. Sélectionnez une unité puis sa destination."></canvas><span class="tag">SECTEUR K–07</span><div class="notice" id="notice" role="status"></div></div><div class="legend"><span><i class="mark"></i>Votre colonie</span><span><i class="mark enemy"></i>Faction adverse</span><span><i class="mark relay"></i>Relais minier</span></div><div class="selection"><div><b id="sel">Centre de commandement</b><p id="selInfo">Deux extracteurs sont affectés au minerai.</p></div><button id="army" class="small">Sélectionner l’armée</button></div></div><div class="foot"><span>Clic · sélectionner &nbsp; / &nbsp; Clic droit · donner un ordre</span><span>Glisser · sélection multiple</span></div></div>
+<aside class="side"><div class="panel"><div class="section">Ordre de mission</div><div class="brief"><div class="kicker">Objectif principal</div><h2>Briser le noyau</h2><p>Détruisez le noyau rouge au nord-est. Tenez le relais central avec vos troupes pour gagner du minerai supplémentaire.</p></div></div><div class="panel deployment"><div class="deploy"><div class="row"><label for="level">Adversaire</label><select id="level"><option value="easy">Recrue</option><option value="normal" selected>Standard</option><option value="hard">Vétéran</option></select></div><button id="start" class="primary">Lancer la mission <span>↗</span></button></div></div><div class="panel catalog"><div class="section"><span>Production</span><span class="light">◆ COÛT</span></div><div class="actions" id="actions"></div><div class="queue" id="queue"></div></div></aside></div></main>
+<dialog id="dialog"><div class="kicker">Dustline / Commandement</div><h2 id="modalTitle"></h2><div id="modalBody"></div><button class="primary" id="modalOk"></button><button class="small hidden" id="restart">Recommencer la mission</button></dialog>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const W=1000,H=580, map=$("map"), ctx=map.getContext("2d");
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const baseSites=[{x:182,y:398},{x:832,y:137}], relay={x:505,y:289};
+const veins=[{x:88,y:452},{x:143,y:492},{x:238,y:457},{x:758,y:92},{x:873,y:84},{x:919,y:164},{x:438,y:330},{x:564,y:251}];
+let seed=98173;
+function random(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function poly(g,points,fill,line){g.beginPath();points.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();g.fillStyle=fill;g.fill();if(line){g.strokeStyle=line;g.lineWidth=1;g.stroke()}}
+function ellipse(g,x,y,rx,ry,col){g.beginPath();g.ellipse(x,y,rx,ry,0,0,Math.PI*2);g.fillStyle=col;g.fill()}
+function line(g,x,y,x2,y2,col,width=1){g.beginPath();g.moveTo(x,y);g.lineTo(x2,y2);g.strokeStyle=col;g.lineWidth=width;g.stroke()}
+function rect(g,x,y,w,h,c){g.fillStyle=c;g.fillRect(x,y,w,h)}
+function noise(x,y){
+ const hash=(a,b)=>{let k=Math.imul(a,374761393)+Math.imul(b,668265263);k=Math.imul(k^(k>>>13),1274126177);return ((k^(k>>>16))>>>0)/4294967296};
+ const a=Math.floor(x),b=Math.floor(y);let u=x-a,v=y-b;u=u*u*(3-2*u);v=v*v*(3-2*v);
+ return (hash(a,b)*(1-u)+hash(a+1,b)*u)*(1-v)+(hash(a,b+1)*(1-u)+hash(a+1,b+1)*u)*v;
+}
+const islands=[[45,34,146,58],[271,75,122,47],[480,-9,86,65],[701,24,98,48],[1004,357,98,63],[706,529,149,64],[428,599,167,67],[10,262,74,83],[365,186,77,34],[639,390,88,38],[510,462,51,20],[970,-8,50,41]];
+function relief(x,y){
+ let h=-1; for(const [cx,cy,rx,ry] of islands){const dx=(x-cx)/rx,dy=(y-cy)/ry;if(Math.abs(dx)<1.5&&Math.abs(dy)<1.5)h=Math.max(h,1-Math.sqrt(dx*dx+dy*dy))}
+ return h+(noise(x/41,y/32)-.5)*.44+(noise(x/11,y/10)-.5)*.13;
+}
+function makeTerrain(){
+ const c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d"),im=g.createImageData(W,H),data=im.data;
+ const heights=new Float32Array(W*H);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++)heights[y*W+x]=relief(x,y);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+  const i=y*W+x,h=heights[i], back=heights[Math.max(0,y-12)*W+Math.max(0,x-4)],n=noise(x/75,y/44),grain=(random()-.5)*10;
+  let rgb=[164,103,72], k=(n-.5)*32+(noise(x/21,y/14)-.5)*10+grain;
+  if(h>0){const layer=Math.floor(h*9);rgb=[158+layer*3,89+layer*3,65+layer*2];if(h%(.111)<.016)k+=18;if(h<.045)k+=14}
+  else if(back>0){rgb=back>.085?[103,58,47]:[124,74,56];k+=Math.sin(y*2+Math.floor(x/5))*4}
+  else if(back>-.085)k-=14;
+  const dune=(Math.sin(x*.024+y*.075+n*7)+1)/2;if(h<0)k+=Math.pow(dune,12)*5;
+  for(let j=0;j<3;j++)data[i*4+j]=rgb[j]+k;data[i*4+3]=255;
+ }
+ g.putImageData(im,0,0);
+ for(let i=0;i<6000;i++){let x=random()*W,y=random()*H;rect(g,x,y,1+random()*4,1,random()>.56?"#f3bb7b44":"#5e393b39")}
+ for(let i=0;i<220;i++){
+  const x=random()*W,y=random()*H,s=1+random()*3.6;poly(g,[[x-s,y],[x,y-s*.8],[x+s,y-1],[x+s*1.5,y+1],[x,y+2]],"#764e40");line(g,x-s,y,x,y-s*.8,"#d19970");
+ }
+ function pad(p,scale){
+  g.save();g.translate(p.x,p.y);g.scale(scale,scale*.63);g.rotate(-.12);
+  for(let i=-2;i<=2;i++)for(let j=-2;j<=2;j++){
+   if(Math.abs(i)+Math.abs(j)>3)continue;
+   const x=i*19,y=j*19;rect(g,x-9,y-9,18,18,(i+j)%2?"#806858":"#8b705b");line(g,x-8,y-8,x+8,y-8,"#b28a6e");
+  }g.restore()
+ }
+ baseSites.forEach(p=>pad(p,1.35));pad(relay,.83);
+ for(const d of veins){
+  for(let i=0;i<16;i++){
+   const px=d.x+(random()-.5)*46,py=d.y+(random()-.5)*22,s=3+random()*5;
+   ellipse(g,px+2,py+1,s*1.2,3,"#5d5350");poly(g,[[px-s,py],[px-s*.6,py-s*1.4],[px+s*.16,py-s*2.4],[px+s,py-s*1.1],[px+s*.6,py]],"#69c5ad","#3c7168");
+   poly(g,[[px-s*.6,py-s*1.4],[px+s*.16,py-s*2.4],[px+1,py]],"#c4eed1");poly(g,[[px+1,py],[px+s*.16,py-s*2.4],[px+s,py-s*1.1],[px+s*.6,py]],"#3b998d");
+  }
+ }return c;
+}
+const terrain=makeTerrain();
+function sprite(g,type,team,x,y,scale=1,angle=0,glow=1){
+ const main=team===0?"#65bbab":"#dc7765",hi=team===0?"#c9f5d9":"#ffe2b7",dark=team===0?"#376d67":"#8e4e48",metal="#a6a497",light="#d8d2b9",edge="#353c39",shade="#565d55";
+ g.save();g.translate(Math.round(x),Math.round(y));g.scale(scale,scale);
+ function box(px,py,w,d,z,roof=metal,wall=shade){
+  const v=[[px-w,py-d*.2],[px-w*.45,py-d],[px+w*.68,py-d],[px+w,py-d*.25],[px+w*.56,py+d*.62],[px-w*.55,py+d*.62]];
+  poly(g,v.map(([a,b])=>[a,b+z]),edge);poly(g,[v[0],v[5],v[4],v[3],[v[3][0],v[3][1]+z],[v[4][0],v[4][1]+z],[v[5][0],v[5][1]+z],[v[0][0],v[0][1]+z]],wall,edge);
+  poly(g,v,roof,edge);line(g,...v[0],...v[1],light);line(g,...v[1],...v[2],light);
+ }
+ function grille(px,py,n){for(let i=0;i<n;i++)line(g,px+i*3,py,px+i*3-1,py+3,edge,1.5)}
+ if(type==="core"||type==="factory"){
+  let f=type==="factory";if(f)g.scale(.79,.79);
+  ellipse(g,7,10,36,15,"#4c353075");box(0,2,34,21,8,shade);box(-17,-4,17,13,8,dark);box(13,-6,20,15,10,metal);
+  box(-2,-15,24,15,12,main,dark);box(-2,-19,14,8,5,metal);grille(-10,-22,6);
+  for(let i=0;i<4;i++){rect(g,-24+i*5,0,3,3,hi);rect(g,10+i*4,3,2,5,edge)}
+  box(20,-13,8,6,8,light);line(g,20,-16,20,-31,edge,2);rect(g,19,-32,3,3,glow?hi:dark);
+  box(-27,4,8,6,6,metal);box(22,5,8,6,6,main,dark);
+  for(let i=0;i<3;i++)line(g,-7+i*6,8,-4+i*6,12,"#d9ad6d",2);
+  if(!f){box(-4,-27,9,6,8,dark);rect(g,-7,-30,7,3,hi);line(g,-15,-20,-15,-35,edge,2);rect(g,-16,-36,3,2,main)}
+ } else if(type==="turret"||type==="relay"){
+  const r=type==="relay";ellipse(g,4,6,17,8,"#49382d77");box(0,0,17,11,5,metal);box(0,-6,12,8,7,r?"#b29b6d":dark);
+  if(r){box(0,-15,6,5,12,"#d2b47c");line(g,0,-16,0,-34,edge,3);poly(g,[[0,-39],[5,-33],[0,-27],[-5,-33]],glow);line(g,-9,-11,-13,-23,edge,2)}
+  else{box(0,-12,9,7,7,main);line(g,2,-14,14,-21,edge,5);line(g,2,-15,14,-22,light,2)}
+ } else{
+  const tank=type==="bulwark",work=type==="worker";g.scale(tank?1.12:.84,tank?1.12:.84);ellipse(g,3,4,15,8,"#4d372e88");
+  g.rotate(angle);for(const s of [-1,1]){
+   rect(g,-11,s*7-2,21,5,edge);rect(g,-10,s*7-2,18,2,shade);for(let i=-8;i<10;i+=4)rect(g,i,s*7-1,1,3,metal);
+  }
+  poly(g,[[-12,-5],[-6,-8],[8,-6],[13,-2],[12,4],[5,7],[-9,6]],work?metal:main,edge);
+  line(g,-7,-7,7,-5,light,2);rect(g,-7,-4,5,7,dark);grille(-8,-3,2);
+  if(work){rect(g,-3,-5,7,9,"#c9a65c");line(g,7,-3,15,-6,light,3);line(g,7,3,15,6,light,3)}
+  else{box(1,-2,tank?8:6,5,3,metal);line(g,4,-3,17,-3,edge,tank?4:3);line(g,4,-4,18,-4,light,1.5);if(tank)line(g,5,0,17,0,edge,3)}
+  rect(g,7,3,3,2,hi)
+ }g.restore()
+}
+const kinds={
+ worker:{name:"Extracteur",hp:55,speed:36,cost:45,seconds:6,key:"E",role:"Récolte automatique"},
+ scout:{name:"Éclaireur",hp:82,speed:44,range:75,damage:11,rate:1,cost:65,seconds:8,key:"R",role:"Blindé rapide"},
+ bulwark:{name:"Bastion",hp:185,speed:28,range:99,damage:24,rate:1.4,cost:120,seconds:13,key:"B",role:"Blindé lourd"},
+ turret:{name:"Tourelle",hp:235,range:132,damage:18,rate:1.05,cost:95,seconds:9,key:"T",role:"Défense fixe"},
+ factory:{name:"Atelier",hp:330,cost:140,seconds:12,key:"F",role:"Ajoute une file de production"},
+ core:{name:"Noyau",hp:690,range:94,damage:11,rate:1.5}
+};
+const modes={easy:{power:.70,income:.6,train:28,first:135,interval:100},normal:{power:1,income:1.5,train:14,first:102,interval:77},hard:{power:1,income:2.8,train:9,first:78,interval:62}};
+const mobile=t=>!!kinds[t].speed;
+const fighter=u=>u.type==="scout"||u.type==="bulwark";
+let units,minerals,elapsed,selected,nextId,phase,build,relayControl,aiAt,raidAt,raids,config,shots,pings,selectionBox,pointer,announceUntil,lastHud=0;
+let sound=false,audio,selectedText="",priorPhase,modalType;
+const now=()=>performance.now()/1000;
+function beep(freq=400,length=.065){
+ if(!sound)return;
+ try{audio??=new AudioContext();if(audio.state==="suspended")audio.resume();const osc=audio.createOscillator(),v=audio.createGain();osc.type="triangle";osc.frequency.setValueAtTime(freq,audio.currentTime);osc.frequency.exponentialRampToValueAtTime(freq*.72,audio.currentTime+length);v.gain.setValueAtTime(.055,audio.currentTime);v.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);osc.connect(v).connect(audio.destination);osc.start();osc.stop(audio.currentTime+length)}catch{}
+}
+function say(msg){$("notice").textContent=msg;$("notice").style.display="block";announceUntil=now()+3.4}
+function unit(type,team,x,y){const u={id:nextId++,type,team,x,y,hp:kinds[type].hp,angle:team?2.7:-.42,cd:0,goal:null,enemy:null,queue:[],timer:0,cargo:false,load:0,vein:null,work:0,gather:true};units.push(u);return u}
+function reset(){
+ phase="ready";units=[];shots=[];pings=[];elapsed=0;nextId=1;minerals=[180,150];relayControl=0;selected=new Set();build=null;selectionBox=null;pointer=null;aiAt=6;raids=0;
+ config=modes[$("level").value];raidAt=config.first;
+ baseSites.forEach((p,t)=>{
+  const d=t?-1:1;unit("core",t,p.x,p.y);
+  [0,1].forEach((n)=>{const w=unit("worker",t,p.x+(n?-18:14),p.y+(n?24:17));w.vein=veins[(t?3:0)+n]});
+  for(let i=0;i<3;i++)unit("scout",t,p.x+d*(38+i*12),p.y+d*(7-i*15))
+ });selected.add(units[0].id);$("start").innerHTML='Lancer la mission <span>↗</span>';$("level").disabled=false;$("pause").classList.add("hidden");$("notice").style.display="none";hud()
+}
+function start(){
+ config=modes[$("level").value];raidAt=config.first;phase="play";$("level").disabled=true;$("pause").classList.remove("hidden");$("start").innerHTML='Pause tactique <span>Ⅱ</span>';beep(440);say("Mission lancée · Vos extracteurs sont au travail.");hud()
+}
+function living(t){return units.filter(u=>u.team===t&&u.hp>0)}
+function group(){return units.filter(u=>selected.has(u.id)&&u.hp>0)}
+function allArmy(){selected=new Set(living(0).filter(fighter).map(u=>u.id));build=null;beep(340);hud()}
+function nearest(origin,list){let best=null,d=Infinity;for(const u of list){const n=dist(origin,u);if(n<d){d=n;best=u}}return best}
+function population(t){return living(t).reduce((n,u)=>n+(mobile(u.type)?1:0)+u.queue.length,0)}
+function order(point,target){
+ const army=group().filter(u=>mobile(u.type));if(!army.length){say("Sélectionnez d’abord des unités mobiles.");return}
+ const ore=nearest(point,veins),cols=Math.ceil(Math.sqrt(army.length));
+ army.forEach((u,i)=>{
+  u.enemy=target?.team===1?target:null;u.goal=null;u.gather=false;
+  if(u.type==="worker"&&dist(point,ore)<33){u.vein=ore;u.gather=true;return}
+  if(!u.enemy||!fighter(u))u.goal={x:clamp(point.x+((i%cols)-(cols-1)/2)*17,8,W-8),y:clamp(point.y+(Math.floor(i/cols)-Math.floor((army.length-1)/cols)/2)*17,8,H-8)};
+ });pings.push({...point,life:1,enemy:target?.team===1});beep(target?210:320)
+}
+function production(type,team){
+ const def=kinds[type], sites=living(team).filter(u=>(u.type==="core"||u.type==="factory")&&!u.work);
+ const target=sites.sort((a,b)=>a.queue.reduce((n,j)=>n+kinds[j].seconds,0)-a.timer-(b.queue.reduce((n,j)=>n+kinds[j].seconds,0)-b.timer))[0];
+ if(!target||minerals[team]<def.cost||population(team)>=30||target.queue.length>=6)return false;
+ target.queue.push(type);minerals[team]-=def.cost;return true
+}
+function requestType(type){
+ if(phase!=="play")return;
+ if(build===type){build=null;hud();return}
+ build=null;
+ if(minerals[0]<kinds[type].cost){say("Minerai insuffisant.");hud();return}
+ if(mobile(type)){
+  if(!production(type,0)){say(population(0)>=30?"Limite de 30 unités atteinte.":"File de production pleine.");return}
+  say(kinds[type].name+" en production.");beep(460)
+ }else{build=type;say("Cliquez près d’un bâtiment allié pour construire.")}
+ hud()
+}
+function validSite(p){return p.x>22&&p.x<W-22&&p.y>30&&p.y<H-20&&living(0).some(u=>!mobile(u.type)&&!u.work&&dist(u,p)<145)&&units.every(u=>mobile(u.type)||dist(u,p)>(u.type==="core"?65:42))&&veins.every(v=>dist(v,p)>35)&&dist(relay,p)>38}
+function place(p){if(!validSite(p)){say("Choisissez un emplacement libre dans le rayon turquoise.");return}if(minerals[0]<kinds[build].cost){build=null;hud();return}minerals[0]-=kinds[build].cost;const u=unit(build,0,p.x,p.y);u.work=kinds[build].seconds;u.hp=kinds[build].hp*.35;selected=new Set([u.id]);build=null;beep(250);say("Construction en cours.");hud()}
+function move(u,p,dt,stop=2){
+ const d=dist(u,p);if(d<=stop+.08)return true;const a=Math.atan2(p.y-u.y,p.x-u.x),step=Math.min(d-stop,kinds[u.type].speed*dt);u.x+=Math.cos(a)*step;u.y+=Math.sin(a)*step;u.angle=a;return false
+}
+function tick(dt){
+ if(phase!=="play")return;elapsed+=dt;const sides=[living(0),living(1)],cores=sides.map(side=>side.find(u=>u.type==="core"));
+ const presence=sides.map(s=>s.some(u=>fighter(u)&&dist(u,relay)<61));
+ const sign=Number(presence[0])-Number(presence[1]);relayControl=clamp(relayControl+sign*dt/7,-1,1);
+ if(relayControl>=1)minerals[0]+=dt*2.4;if(relayControl<=-1)minerals[1]+=dt*2.4;
+ minerals[1]+=dt*config.income;
+ if(elapsed>=aiAt){aiAt=elapsed+config.train;production(elapsed>65&&raids%2===0&&minerals[1]>=125?"bulwark":"scout",1)}
+ if(elapsed>=raidAt){
+  raidAt+=config.interval;raids++;const force=sides[1].filter(fighter);
+  force.slice(0,Math.max(1,force.length-1)).forEach(u=>{u.goal={x:cores[0].x,y:cores[0].y};u.enemy=null});say("Raid détecté au nord-est.");beep(160)
+ }
+ for(const u of units.slice()){
+  if(u.hp<=0)continue;const spec=kinds[u.type],t=u.team,foes=sides[1-t];u.cd-=dt;
+  if(u.work>0){u.work=Math.max(0,u.work-dt);u.hp=Math.min(spec.hp,u.hp+dt*spec.hp*.65/spec.seconds);continue}
+  if(u.queue.length){u.timer+=dt;const type=u.queue[0];if(u.timer>=kinds[type].seconds){
+    const a=(nextId*2.39996);const fresh=unit(type,t,u.x+Math.cos(a)*39,u.y+Math.sin(a)*29);
+    if(t&&fighter(fresh))fresh.goal={x:u.x-38-(fresh.id%6)*9,y:u.y+25+(fresh.id%5)*11};
+    u.queue.shift();u.timer=0
+  }}
+  if(u.type==="worker"&&u.gather){
+   if(!u.vein){const available=veins.slice(t?3:0,t?6:3);u.vein=available.sort((a,b)=>sides[t].filter(w=>w.vein===a).length-sides[t].filter(w=>w.vein===b).length||dist(u,a)-dist(u,b))[0]}
+   const dest=u.cargo?cores[t]:u.vein;
+   if(move(u,dest,dt,u.cargo?29:10)){
+    u.load+=dt;if(u.load>(u.cargo?.35:2.8)){
+     if(u.cargo)minerals[t]+=17;u.cargo=!u.cargo;u.load=0
+    }
+   }continue
+  }
+  if(u.enemy?.hp<=0)u.enemy=null;
+  if(t===0&&u.goal&&!u.enemy){if(move(u,u.goal,dt))u.goal=null;continue}
+  const foe=spec.range?(u.enemy||nearest(u,foes.filter(e=>e.hp>0))):null;
+  if(foe&&dist(u,foe)<=spec.range+(mobile(foe.type)?5:18)){
+   u.angle=Math.atan2(foe.y-u.y,foe.x-u.x);
+   if(u.cd<=0){u.cd=spec.rate;foe.hp-=spec.damage*(t?config.power:1);shots.push({x:u.x,y:u.y-3,tx:foe.x,ty:foe.y-4,t,life:.15});if(foe.hp<=0)pings.push({x:foe.x,y:foe.y,life:1,blast:true})}
+  }else if(mobile(u.type)){
+   if(u.enemy&&fighter(u))move(u,u.enemy,dt);
+   else if(u.goal){if(move(u,u.goal,dt))u.goal=null}
+  }
+ }
+ // Mild separation keeps groups legible while preserving their issued formation.
+ for(const side of sides){const movers=side.filter(u=>mobile(u.type));for(let i=0;i<movers.length;i++)for(let j=0;j<i;j++){
+  const a=movers[i],b=movers[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<13&&d>.01){const push=(13-d)*dt*2/d;a.x+=dx*push;a.y+=dy*push;b.x-=dx*push;b.y-=dy*push}
+ }}
+ shots.forEach(s=>s.life-=dt);shots=shots.filter(s=>s.life>0);pings.forEach(p=>p.life-=dt);pings=pings.filter(p=>p.life>0);
+ units=units.filter(u=>u.hp>0);
+ if(cores.some(u=>u.hp<=0))finish(cores[1].hp<=0)
+}
+const formatTime=s=>[Math.floor(s/60),Math.floor(s%60)].map(n=>String(n).padStart(2,"0")).join(":");
+function hud(){
+ $("ore").textContent=Math.floor(minerals[0]);$("time").textContent=formatTime(elapsed);$("pop").textContent=population(0)+"/30";
+ $("status").textContent=({ready:"EN ATTENTE",play:"EN DIRECT",paused:"EN PAUSE",ended:"TERMINÉE"})[phase];
+ const g=group(),u=g[0];$("army").disabled=phase!=="play"||!living(0).some(fighter);
+ if(build){selectedText="Construction · "+kinds[build].name;$("selInfo").textContent="Cliquez dans la zone de construction. Échap pour annuler."}
+ else if(phase==="ready"){selectedText="Centre de commandement";$("selInfo").textContent="Deux extracteurs sont affectés au minerai."}
+ else if(g.length>1){selectedText=g.length+" unités sélectionnées";$("selInfo").textContent="Cliquez sur le terrain pour avancer ou sur une cible pour attaquer."}
+ else if(u){selectedText=kinds[u.type].name;$("selInfo").textContent=Math.ceil(u.hp)+" / "+kinds[u.type].hp+" PV · "+(u.work?"Construction · "+Math.ceil(u.work)+" s":u.type==="worker"?(u.gather?"Récolte automatique":"En déplacement"):kinds[u.type].role||"Centre de production")}
+ else{selectedText="Aucune unité sélectionnée";$("selInfo").textContent="Cliquez sur une unité turquoise ou sélectionnez l’armée."}
+ $("sel").textContent=selectedText;
+ for(const b of $("actions").children){b.disabled=phase!=="play";b.classList.toggle("active",build===b.dataset.type)}
+ const lines=living(0).filter(u=>u.queue.length).map(u=>kinds[u.queue[0]].name+" · "+Math.ceil(kinds[u.queue[0]].seconds-u.timer)+" s"+(u.queue.length>1?" (+"+(u.queue.length-1)+")":""));$("queue").textContent=lines.join(" / ")
+}
+function ring(x,y,rx,ry,color,dash=[]){ctx.beginPath();ctx.setLineDash(dash);ctx.strokeStyle=color;ctx.lineWidth=1.6;ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([])}
+function label(x,y,text,color){ctx.font="bold 10px monospace";const width=ctx.measureText(text).width;rect(ctx,x-width/2-6,y-10,width+12,15,"#222623da");ctx.fillStyle=color;ctx.textAlign="center";ctx.fillText(text,x,y+1);ctx.textAlign="left"}
+function draw(){
+ ctx.drawImage(terrain,0,0);
+ const beacon=relayControl>=1?"#80e8c4":relayControl<=-1?"#ff957c":"#ffd186";
+ ring(relay.x,relay.y,60,36,beacon+"90",[4,5]);sprite(ctx,"relay",0,relay.x,relay.y,1,0,beacon);
+ label(relay.x,relay.y+32,relayControl>=1?"RELAIS  +2,4/s":relayControl<=-1?"RELAIS ADVERSE":Math.abs(relayControl)>.02?"RELAIS  "+Math.floor(Math.abs(relayControl)*100)+"%":"RELAIS",beacon);
+ if(build)for(const u of living(0).filter(u=>!mobile(u.type)&&!u.work))ring(u.x,u.y,145,145,"#a7f4d4aa",[5,5]);
+ const sorted=units.slice().sort((a,b)=>a.y-b.y);
+ for(const u of sorted){
+  const small=mobile(u.type),chosen=selected.has(u.id);
+  if(chosen)ring(u.x,u.y+4,small?17:43,small?10:22,"#a3f4cb");
+  ctx.save();if(u.work)ctx.globalAlpha=.62;sprite(ctx,u.type,u.team,u.x,u.y,1,u.angle);ctx.restore();
+  if(u.cargo)rect(ctx,u.x-3,u.y-6,6,5,"#adf4cb");
+  if(u.work||u.hp<kinds[u.type].hp||chosen&&small){
+   const w=small?17:34,yy=u.y-(small?15:38);rect(ctx,u.x-w/2-1,yy-1,w+2,4,"#333935");rect(ctx,u.x-w/2,yy,w*clamp(u.work?1-u.work/kinds[u.type].seconds:u.hp/kinds[u.type].hp,0,1),2,u.team?"#f38f71":"#88ddbc")
+  }
+  if(u.type==="core")label(u.x,u.y+35,u.team?"NOYAU ADVERSE":"VOTRE NOYAU",u.team?"#ffab94":"#a7f1d5")
+ }
+ for(const s of shots){line(ctx,s.x,s.y,s.tx,s.ty,s.t?"#ffa56e":"#b4f7d8",2);ellipse(ctx,s.tx,s.ty,4,3,"#fff0ad")}
+ for(const p of pings){ctx.globalAlpha=Math.min(1,p.life*2);if(p.blast)ellipse(ctx,p.x,p.y,3+11*p.life,2+8*p.life,"#ffb66d");ring(p.x,p.y,7+(1-p.life)*17,4+(1-p.life)*11,p.enemy?"#ffd1a0":"#daf3d7");ctx.globalAlpha=1}
+ if(build&&pointer){sprite(ctx,build,0,pointer.x,pointer.y);ring(pointer.x,pointer.y,30,16,validSite(pointer)?"#89ffd3":"#f47360")}
+ if(selectionBox&&selectionBox.drag){const b=selectionBox;rect(ctx,b.x,b.y,b.end.x-b.x,b.end.y-b.y,"#8ff1cf28");ctx.strokeStyle="#abeed0";ctx.strokeRect(b.x,b.y,b.end.x-b.x,b.end.y-b.y)}
+ if(now()>announceUntil)$("notice").style.display="none"
+}
+function show(type){
+ if($("dialog").open)return;
+ modalType=type;priorPhase=phase;if(phase==="play")phase="paused";$("restart").classList.toggle("hidden",type!=="pause");
+ const content={
+  help:["Commandes","<ul><li>Cliquez sur une unité turquoise, puis sur le sol pour la déplacer. Sur ordinateur, le clic droit donne aussi un ordre.</li><li>Glissez un cadre pour sélectionner plusieurs unités. La touche A sélectionne toute l’armée.</li><li>Ciblez un ennemi pour concentrer les tirs, ou un cristal avec un extracteur pour le récolter.</li><li>Le relais rapporte 2,4 minerais par seconde après 7 secondes d’occupation sans adversaire.</li><li>Produisez depuis le panneau de droite. Chaque atelier ajoute une file indépendante.</li><li>Espace met la mission en pause. Échap annule une construction.</li></ul>","Compris"],
+  pause:["Pause tactique","<p>La simulation est suspendue.</p>","Reprendre la mission"],
+  confirm:["Recommencer ?","<p>La progression de cette escarmouche sera effacée.</p>","Garder ma partie"],
+  win:["Secteur sécurisé","<p>Le noyau adverse est tombé après "+formatTime(elapsed)+". Votre colonie contrôle la faille d’ocre.</p>","Nouvelle escarmouche"],
+  loss:["Noyau perdu","<p>Votre noyau a tenu "+formatTime(elapsed)+". Renforcez la colonie ou attaquez avant le prochain raid.</p>","Nouvelle escarmouche"]
+ }[type];$("modalTitle").textContent=content[0];$("modalBody").innerHTML=content[1];$("modalOk").textContent=content[2];
+ if(type==="confirm"){$("restart").classList.remove("hidden");$("restart").textContent="Recommencer"}else $("restart").textContent="Recommencer la mission";
+ $("dialog").showModal();hud()
+}
+function dismiss(){if(!$("dialog").open)return;$("dialog").close();if(["win","loss"].includes(modalType)){reset();return}phase=priorPhase;hud()}
+function finish(win){phase="ended";build=null;beep(win?800:100);show(win?"win":"loss")}
+function point(e){const b=map.getBoundingClientRect();return{x:clamp((e.clientX-b.left)*W/b.width,0,W),y:clamp((e.clientY-b.top)*H/b.height,0,H)}}
+function pick(p){return units.map(u=>({u,d:dist(p,{x:u.x,y:u.y-(mobile(u.type)?0:8)})/(mobile(u.type)?18:u.type==="core"?40:25)})).filter(z=>z.d<=1).sort((a,b)=>a.d-b.d)[0]?.u}
+map.addEventListener("contextmenu",e=>e.preventDefault());
+map.addEventListener("pointerdown",e=>{
+ if(phase!=="play"||!e.isPrimary)return;e.preventDefault();map.focus({preventScroll:true});const p=point(e);pointer=p;
+ if(e.button===2){if(build){build=null;hud()}else order(p,pick(p));return}
+ if(e.button!==0)return;map.setPointerCapture(e.pointerId);selectionBox={...p,end:p,drag:false}
+});
+map.addEventListener("pointermove",e=>{const p=point(e);pointer=p;if(selectionBox){selectionBox.end=p;if(dist(p,selectionBox)>8)selectionBox.drag=true}});
+map.addEventListener("pointercancel",()=>selectionBox=null);
+map.addEventListener("pointerleave",()=>{if(!selectionBox)pointer=null});
+map.addEventListener("pointerup",e=>{
+ if(!selectionBox||phase!=="play"||e.button!==0)return;const p=point(e),b=selectionBox;selectionBox=null;
+ if(build){place(p);return}
+ if(b.drag){const picked=living(0).filter(u=>mobile(u.type)&&u.x>=Math.min(b.x,p.x)&&u.x<=Math.max(b.x,p.x)&&u.y>=Math.min(b.y,p.y)&&u.y<=Math.max(b.y,p.y));if(!e.shiftKey)selected.clear();picked.forEach(u=>selected.add(u.id));hud();return}
+ const u=pick(p);
+ if(u?.team===0){if(!e.shiftKey)selected.clear();if(e.shiftKey&&selected.has(u.id))selected.delete(u.id);else selected.add(u.id);beep(360);hud()}
+ else order(p,u)
+});
+for(const [type,s] of Object.entries(kinds).filter(([t])=>t!=="core")){
+ const b=document.createElement("button");b.className="action";b.dataset.type=type;b.title=s.role+" · "+s.seconds+" s";b.innerHTML='<canvas width="72" height="60" aria-hidden="true"></canvas><span><strong>'+s.name+'</strong><span class="cost">◆ '+s.cost+' · '+s.seconds+' s</span></span><span class="key">'+s.key+'</span>';b.onclick=()=>requestType(type);$("actions").append(b);sprite(b.firstChild.getContext("2d"),type,0,36,type==="factory"?39:type==="turret"?41:32,type==="factory"?1.05:type==="turret"?1.35:1.6,-.32)
+}
+$("army").onclick=allArmy;$("pause").onclick=()=>show("pause");$("help").onclick=()=>show("help");$("start").onclick=()=>phase==="ready"?start():phase==="play"&&show("pause");
+$("modalOk").onclick=dismiss;$("dialog").addEventListener("cancel",e=>{e.preventDefault();dismiss()});
+$("restart").onclick=()=>{if(modalType==="confirm"){$("dialog").close();reset()}else{$("dialog").close();phase=priorPhase;show("confirm")}};
+function soundIcon(){const b=$("sound");b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9h4l5-4v14l-5-4H3z"/>'+ (sound?'<path d="M15 8q5 4 0 8m3-11q8 7 0 14"/>':'<path d="m16 9 6 6m0-6-6 6"/>')+'</svg>';b.title=sound?"Couper le son":"Activer le son";b.setAttribute("aria-label",b.title)}
+$("sound").onclick=()=>{sound=!sound;soundIcon();beep()};soundIcon();
+document.addEventListener("keydown",e=>{
+ if(e.repeat||e.ctrlKey||e.metaKey||e.altKey||e.target.tagName==="SELECT")return;
+ if($("dialog").open){if(e.code==="Space"&&modalType==="pause"){e.preventDefault();dismiss()}return}
+ if(phase!=="play")return;const k=e.key.toUpperCase();
+ if(e.code==="Space"){e.preventDefault();show("pause")}else if(k==="A")allArmy();else if(k==="ESCAPE"){build=null;hud()}else{const match=Object.entries(kinds).find(([,s])=>s.key===k);if(match)requestType(match[0])}
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&phase==="play")show("pause")});
+reset();let previous=performance.now();
+function frame(ms){const dt=Math.min(.12,(ms-previous)/1000);previous=ms;tick(dt);draw();if(ms-lastHud>180){hud();lastHud=ms}requestAnimationFrame(frame)}requestAnimationFrame(frame);
+</script></body></html>
